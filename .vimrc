@@ -124,6 +124,12 @@ autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex vnoremap ;{ <Esc><Es
                                     
 autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex inoremap ;fig \begin{figure}[t]<Enter><tab>\centering<Enter>\includegraphics[width=\textwidth]{<++>}<Enter>\caption{<++>}<Enter>\label{fig:<++>}<Enter><Backspace><Backspace><Backspace><Backspace>\end{figure}<Enter><++><Esc>4kf<"_c4l
 
+" html
+" Read or Write html -> autoindent
+autocmd BufNewFile,BufRead *.html :normal gg=G
+autocmd FileType,BufNewFile,BufRead,BufReadPre *.html inoremap ;p <p><enter><enter></p><esc>ki
+
+
 
 "autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.py inoremap """ """<Enter><Enter>"""<Esc>ki
 autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex inoremap ;hl {\color{amber}{}}<Space><Esc>hhi
