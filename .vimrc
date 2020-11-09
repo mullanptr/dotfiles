@@ -37,6 +37,7 @@ set is
 set tabstop=4 
 set shiftwidth=4
 set expandtab
+set formatoptions-=tc " no autolinebreak at long lines
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -103,7 +104,7 @@ autocmd BufNewFile,BufRead,BufReadPre *.tex
 
 "" macros for latex:
 " doublespace in insert-mode: go to (change) next <++>
-autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex,*.html inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
                                     
 autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex inoremap ;e \emph{}<Space><++><Esc>F{a
 autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex inoremap ;b \textbf{}<Space><++><Esc>F{a
@@ -126,8 +127,14 @@ autocmd FileType,BufNew,BufNewFile,BufRead,BufReadPre *.tex inoremap ;fig \begin
 
 " html
 " Read or Write html -> autoindent
-autocmd BufNewFile,BufRead *.html :normal gg=G
+"autocmd BufNewFile,BufRead *.html :normal gg=G
 autocmd FileType,BufNewFile,BufRead,BufReadPre *.html inoremap ;p <p><enter><enter></p><esc>ki
+autocmd FileType,BufNewFile,BufRead,BufReadPre *.html inoremap ;! <!--<space><space><space>--><esc>hhhhi
+autocmd FileType,BufNewFile,BufRead,BufReadPre *.html inoremap ;a <a href="X" class="<++>"><++></a><++><esc>FXs
+autocmd FileType,BufNewFile,BufRead,BufReadPre *.html inoremap ;tr <esc>v0"pyA<tr><Enter><Enter><esc>"ppA</tr><esc>k"pp<tab>i
+
+map <F6> <ESC>:setlocal spell! spelllang=en_us<CR>
+map <F7> <ESC>:setlocal spell! spelllang=de<CR>
 
 
 
@@ -141,8 +148,8 @@ vnoremap ;` <Esc><Esc>`<i`<Esc>`>la`<Esc>
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Enable folding
-set foldmethod=indent
-set foldlevel=99
+"set foldmethod=indent
+"set foldlevel=99
 
 " code un/folding via space
 " nnoremap <space> za 
