@@ -10,7 +10,7 @@ git init --bare
 
 ## GIT CLONE
 
-git clone ssh://gituser@mullanptr.xyz:10022/var/www/git/$repo.git
+git clone ssh://gituser@mullanptr.xyz:10022/var/www/git/$repo
 
 # JUPYTER
 
